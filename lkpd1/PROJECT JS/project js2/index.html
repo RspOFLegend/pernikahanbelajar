@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge Collection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        .challenge {
+            margin-bottom: 30px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            padding: 10px;
+            background: #f0f0f0;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Coding Challenges</h1>
+    <div class="container">
+        <!-- Challenge 1: Tebak Angka -->
+        <div class="challenge">
+            <h2>Challenge 1: Tebak Angka</h2>
+            <p>Angka acak antara 1 - 100 telah dipilih. Anda memiliki 7 kesempatan untuk menebak!</p>
+            <input type="number" id="guess" placeholder="Tebak angka (1-100)" min="1" max="100">
+            <button onclick="guessNumber()">Tebak</button>
+            <div id="guessResult" class="result"></div>
+        </div>
+
+        <!-- Challenge 2: Mengurutkan Array -->
+        <div class="challenge">
+            <h2>Challenge 2: Mengurutkan Angka dari Array</h2>
+            <input type="text" id="arrayInput" placeholder="Masukkan array angka, dipisahkan koma (cth: 3,1,4)">
+            <button onclick="sortArray()">Urutkan</button>
+            <div id="sortResult" class="result"></div>
+        </div>
+
+        <!-- Challenge 3: FizzBuzz -->
+        <div class="challenge">
+            <h2>Challenge 3: FizzBuzz</h2>
+            <input type="number" id="fizzBuzzInput" placeholder="Masukkan angka">
+            <button onclick="fizzBuzz()">Lakukan FizzBuzz</button>
+            <div id="fizzBuzzResult" class="result"></div>
+        </div>
+
+        <!-- Challenge 4: Kalkulator Sederhana -->
+        <div class="challenge">
+            <h2>Challenge 4: Kalkulator Sederhana</h2>
+            <input type="number" id="num1" placeholder="Angka pertama">
+            <input type="number" id="num2" placeholder="Angka kedua">
+            <select id="operation">
+                <option value="add">Tambah</option>
+                <option value="subtract">Kurang</option>
+                <option value="multiply">Kali</option>
+                <option value="divide">Bagi</option>
+            </select>
+            <button onclick="calculate()">Hitung</button>
+            <div id="calcResult" class="result"></div>
+        </div>
+
+        <!-- Challenge 5: Faktorial -->
+        <div class="challenge">
+            <h2>Challenge 5: Faktorial</h2>
+            <input type="number" id="factorialInput" placeholder="Masukkan angka">
+            <button onclick="calculateFactorial()">Hitung Faktorial</button>
+            <div id="factorialResult" class="result"></div>
+        </div>
+    </div>
+
+    <script>
+        // Challenge 1: Tebak Angka
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 7;
+        function guessNumber() {
+            let guess = document.getElementById("guess").value;
+            let result = "";
+            if (attempts > 0) {
+                if (guess == randomNumber) {
+                    result = "Selamat! Anda menebak dengan benar.";
+                } else if (guess > randomNumber) {
+                    attempts--;
+                    result = "Terlalu tinggi! Sisa percobaan: " + attempts;
+                } else {
+                    attempts--;
+                    result = "Terlalu rendah! Sisa percobaan: " + attempts;
+                }
+            } else {
+                result = "Kesempatan habis! Angka yang benar adalah " + randomNumber;
+            }
+            document.getElementById("guessResult").innerText = result;
+        }
+
+        // Challenge 2: Mengurutkan Array
+        function sortArray() {
+            let input = document.getElementById("arrayInput").value;
+            let array = input.split(',').map(Number);
+            let ascending = [...array].sort((a, b) => a - b);
+            let descending = [...array].sort((a, b) => b - a);
+            document.getElementById("sortResult").innerText = `Ascending: ${ascending}\nDescending: ${descending}`;
+        }
+
+        // Challenge 3: FizzBuzz
+        function fizzBuzz() {
+            let num = document.getElementById("fizzBuzzInput").value;
+            let result = "";
+            for (let i = 1; i <= num; i++) {
+                if (i % 3 === 0 && i % 5 === 0) {
+                    result += "FizzBuzz ";
+                } else if (i % 3 === 0) {
+                    result += "Fizz ";
+                } else if (i % 5 === 0) {
+                    result += "Buzz ";
+                } else {
+                    result += i + " ";
+                }
+            }
+            document.getElementById("fizzBuzzResult").innerText = result;
+        }
+
+        // Challenge 4: Kalkulator Sederhana
+        function calculate() {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let operation = document.getElementById("operation").value;
+            let result = 0;
+            if (operation === "add") {
+                result = num1 + num2;
+            } else if (operation === "subtract") {
+                result = num1 - num2;
+            } else if (operation === "multiply") {
+                result = num1 * num2;
+            } else if (operation === "divide") {
+                result = num1 / num2;
+            }
+            document.getElementById("calcResult").innerText = "Hasil: " + result;
+        }
+
+        // Challenge 5: Menghitung Faktorial
+        function calculateFactorial() {
+            let num = document.getElementById("factorialInput").value;
+            let result = 1;
+            for (let i = 1; i <= num; i++) {
+                result *= i;
+            }
+            document.getElementById("factorialResult").innerText = "Faktorial: " + result;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RVSP</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url(galeri3.jpg);
+            background-size: cover;
+        }
+
+        .rsvp-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .rsvp-form label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .rsvp-form input[type="text"], .rsvp-form input[type="tel"], .rsvp-form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.5); 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .rsvp-form input[type="text"]:focus, .rsvp-form input[type="tel"]:focus, .rsvp-form textarea:focus {
+            background-color: #fff; 
+        }
+
+        .rsvp-form input[type="text"]::placeholder, .rsvp-form input[type="tel"]::placeholder, .rsvp-form textarea::placeholder {
+            color: #aaa; 
+        }
+
+        #nama, #no-hp, #ucapan-doa {
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #ucapan-doa {
+            height: 100px;
+            resize: vertical;
+        }
+
+        #kirim-ucapan {
+    width: 228px;
+    height: 32px;
+    padding: 10px;
+    background-color: #3D3D3D;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#kirim-ucapan:hover {
+    background-color: aliceblue;
+    color: black;
+}
+    </style>
+</head>
+<body>
+    <div class="rsvp-form">
+        <h2>RSVP</h2>
+        <form action="Terimakasih.html" method="get">
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda"><br><br>
+            <label for="no-hp">No HP:</label>
+            <input type="tel" id="no-hp" name="no-hp" placeholder="Masukkan no HP Anda"><br><br>
+            <label for="ucapan-doa">Ucapan dan Doa:</label>
+            <textarea id="ucapan-doa" name="ucapan-doa" placeholder="Masukkan ucapan dan doa Anda"></textarea><br><br>
+            <input type="submit" id="kirim-ucapan" value="Kirim Ucapan">
+        </form>
+    </div>
+</body>
+</html>

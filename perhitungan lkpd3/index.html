@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 300px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Perhitungan Penjualan dan Diskon</h2>
+
+  <label for="harga">Harga Satuan (Rp):</label>
+  <input type="text" id="harga" value="10000">
+
+  <label for="jumlah">Jumlah Barang:</label>
+  <input type="text" id="jumlah" value="10">
+
+  <label for="diskon">Diskon (%):</label>
+  <input type="text" id="diskon" value="2">
+
+  <button onclick="hitungTotal()">Hitung Total</button>
+
+  <p id="totalSebelumDiskon"></p>
+  <p id="totalDiskon"></p>
+  <p id="totalSetelahDiskon"></p>
+</div>
+
+<script>
+function hitungTotal() {
+  var harga = parseInt(document.getElementById("harga").value);
+  var jumlah = parseInt(document.getElementById("jumlah").value);
+  var diskon = parseInt(document.getElementById("diskon").value);
+
+  var totalSebelumDiskon = harga * jumlah;
+  var totalDiskon = (totalSebelumDiskon * diskon) / 100;
+  var totalSetelahDiskon = totalSebelumDiskon - totalDiskon;
+
+  document.getElementById("totalSebelumDiskon").innerHTML = "Total Sebelum Diskon: " + totalSebelumDiskon.toFixed(2) + " Rp";
+  document.getElementById("totalDiskon").innerHTML = "Total Diskon: " + totalDiskon.toFixed(2) + " Rp";
+  document.getElementById("totalSetelahDiskon").innerHTML = "Total Setelah Diskon: " + totalSetelahDiskon.toFixed(2) + " Rp";
+}
+</script>
+
+</body>
+</html>

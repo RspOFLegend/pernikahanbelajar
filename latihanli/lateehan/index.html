@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan Daffa AL Ayubi & Karina Gracerlyne</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background-color: #f4f4f4; 
+            color: #333;
+            overflow-x: hidden; 
+            background-image:url(destinasi.webp);
+            background-size: cover; 
+            background-repeat: no-repeat;
+            font-family: 'Noto Sans Japanese';
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative; 
+            overflow: auto; 
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.8); 
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            width: 80%;
+            max-width: 800px;
+            position: relative;
+            backdrop-filter: blur(10px); 
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #333; 
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #333; 
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #333; 
+        }
+
+        .info {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+
+        .person {
+            text-align: center;
+        }
+
+        .person img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .details {
+            font-size: 1.2rem;
+            color: #333; 
+        }
+
+        .button {
+            background-color: #000000;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s; 
+        }
+
+        .button:hover {
+            background-color: #0069d9;
+        }
+
+        .countdown-container {
+            font-size: 3rem;
+            color: #333;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+            margin-top: 30px; 
+        }
+
+        .countdown-container > div {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .content {
+            margin-top: 30px;
+            text-align: left; 
+        }
+
+        .content p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .content h4 {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .gallery img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .rsvp-form {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .rsvp-form label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .rsvp-form input[type="text"],
+        .rsvp-form input[type="email"],
+        .rsvp-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .rsvp-form button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        }
+
+        .rsvp-form button:hover {
+            background-color: #0069d9;
+        }
+
+        .map-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Undangan Pernikahan</h1>
+            <h2>Daffa AL Ayubi & Karina Gracerlyne</h2>
+            <h3>Desember 22, 2024</h3>
+            <button class="button">Buka Undangan</button>
+            <div class="info">
+                <div class="person">
+                    <img src="oranghitam.jpg" alt="Daffa Al Ayubi">
+                    <h2>Daffa Al Ayubi</h2>
+                    <div class="details">Anak Dari Bapak Eko & Ibu Handayani</div>
+                </div>
+                <div class="person">
+                    <img src="gawe.png" alt="Karina Gracerlyne">
+                    <h2>Karina Gracerlyne</h2>
+                    <div class="details">Anak Dari Bapak Bambang Susilo & Ibu Gracerlyne</div>
+                </div>
+            </div>
+
+            <div class="countdown-container">
+                <div id="days"></div>
+                <div id="hours"></div>
+                <div id="minutes"></div>
+                <div id="seconds"></div>
+            </div>
+
+            <div class="content">
+                <h4>Acara Pernikahan</h4>
+                <p>Kami mengundang Anda untuk menghadiri acara pernikahan kami yang akan diadakan pada:</p>
+                <p><strong>Tanggal:</strong> Desember 22, 2024</p>
+                <p><strong>Waktu:</strong> [12:00]</p>
+                <p><strong>Lokasi:</strong> [Galaxy Hotel]</p>
+                <p>Semoga kehadiran Anda dapat menambah kemeriahan acara pernikahan kami. Terima kasih atas doa dan restu Anda.</p>
+            </div>
+
+            <div class="content">
+                <h4>Galeri Foto</h4>
+                <div class="gallery">
+                    <img src="gallery1.jpg" alt="Gambar 1">
+                    <img src="gallery2.jpg" alt="Gambar 2">
+                    <img src="gallery3.jpg" alt="Gambar 3">
+                </div>
+            </div>
+
+            <div class="content">
+                <h4>Kata Sambutan</h4>
+                <p>Kami ingin mengucapkan terima kasih yang sebesar-besarnya kepada keluarga, teman-teman, dan kerabat yang telah memberikan doa dan restu kepada kami. Semoga pernikahan kami selalu diberkahi kebahagiaan dan keberkahan.</p>
+            </div>
+
+            <div class="rsvp-form">
+                <h4>RSVP</h4>
+                <form>
+                    <label for="name">Nama:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Pesan:</label>
+                    <textarea id="message" name="message"></textarea>
+
+                    <button type="submit">Kirim</button>
+                </form>
+            </div>
+
+            <div class="map-container">
+                <h4>Lokasi Acara</h4>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.899773187706!2d106.82826691432295!3d-6.214040962299092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f41616b7f12b%3A0x4320a629b7c8592!2sGalaxy%20Hotel!5e0!3m2!1sid!2sid!4v1701100326890!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+
+        const targetDate = new Date("December 22, 2024 00:00:00").getTime();
+
+        const intervalId = setInterval(function () {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+            document.getElementById("days").innerHTML = days + "<br>Hari";
+            document.getElementById("hours").innerHTML = hours + "<br>Jam";
+            document.getElementById("minutes").innerHTML = minutes + "<br>Menit";
+            document.getElementById("seconds").innerHTML = seconds + "<br>Detik";
+
+            if (distance < 0) {
+                clearInterval(intervalId);
+                document.getElementById("countdown").innerHTML = "Pernikahan telah dimulai!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

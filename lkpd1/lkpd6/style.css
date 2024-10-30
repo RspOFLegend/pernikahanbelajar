@@ -1,0 +1,89 @@
+\.container {
+    display: grid;
+    grid-template-rows: 100px 1fr 100px;
+    height: 100vh;
+    grid-gap: 20px;
+}
+
+.header {
+    background-color: #f7f7f7;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.undangan-isi {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.kolom-1, .kolom-2 {
+    flex-basis: 40%;
+    margin: 20px;
+}
+
+.kolom-1 {
+    text-align: right;
+}
+
+.kolom-2 {
+    text-align: left;
+}
+
+.footer {
+    background-color: #f7f7f7;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rsvp-card {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+}
+
+label {
+    grid-column: 1;
+}
+
+input, select {
+    grid-column: 2;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button.rsvp-button {
+    grid-column: 2;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+button.rsvp-button:hover {
+    background-color: #3e8e41;
+}

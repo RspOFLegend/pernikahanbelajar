@@ -1,0 +1,130 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f8f9fa; /* Light gray background */
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 40px 0;
+    background-color: #ffffff; /* White background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #343a40; /* Dark gray text */
+}
+
+header p {
+    font-size: 1.2em;
+    color: #6c757d; /* Medium gray text */
+}
+
+/* Section Headings */
+section h2 {
+    font-size: 2em;
+    margin: 20px 0;
+    color: #495057; /* Darker gray */
+    border-bottom: 2px solid #e9ecef; /* Light border */
+    padding-bottom: 10px;
+}
+
+/* Projects Section */
+#projects .project {
+    background-color: #ffffff; /* White background */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#projects .project h3 {
+    font-size: 1.5em;
+    color: #343a40; /* Dark gray */
+}
+
+#projects button {
+    background-color: #007bff; /* Primary color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Certificates Section */
+#certificates {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#certificates .certificate {
+    width: calc(50% - 10px);
+    background-color: #ffffff; /* White background */
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#certificates img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+/* Skills Section */
+#skills ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#skills li {
+    background-color: #007bff; /* Primary color */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* About & Contact Section */
+#about {
+    background-color: #ffffff; /* White background */
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#about a {
+    color: #007bff; /* Primary color */
+    text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    #certificates .certificate {
+        width: 100%;
+    }
+
+    #skills ul {
+        flex-direction: column;
+    }
+}

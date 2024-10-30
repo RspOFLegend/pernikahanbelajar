@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windah Battle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #4a90e2;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .hero-stats {
+            font-size: 20px;
+            color: #444;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #e6f7ff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+        }
+
+        img {
+            width: 50%;
+            max-width: 600px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        button {
+            background-color: #6b0099;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #000000;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        @media (max-width: 768px) {
+            img {
+                width: 90%;
+            }
+
+            button {
+                width: auto;
+                font-size: 14px;
+            }
+
+            .button-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Windah Lapucard</h2>
+
+    <div class="hero-stats">
+        <p>   Hp: 100</p>
+        <p>   Atk: 78</p>
+        <p>   Def: 88</p>
+        <p>   Crit Rate: 80%</p>
+
+    </div>
+
+    <img id="myImage" src="pic_bulboff.gif" alt="Spawn Windah Lapucard">
+
+    <div class="button-container">
+        <button onclick="document.getElementById('myImage').src='windahlapucard.webp'">Windah Posisi Siap</button>
+        <button onclick="document.getElementById('myImage').src='hq720.jpg'">Windah Posisi Menyerang</button>
+        <button onclick="document.getElementById('myImage').src='FUVYEJoVEAEDSxP.jpg'">Windah Full Utimate</button>
+    </div>
+
+</body>
+</html>

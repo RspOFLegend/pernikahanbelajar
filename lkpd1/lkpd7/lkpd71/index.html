@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Sederhana dengan Flexbox</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .column {
+            flex: 1 1 45%;
+            padding: 10px;
+        }
+
+        footer {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+
+            .column {
+                flex: 1 1 100%;
+            }
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Website M Daffa AL Ayubi</h1>
+        </header>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Next</a>
+            <a href="#">Previous</a>
+            <a href="#">Contact</a>
+            <a href="#">About</a>
+        </nav>
+        <div class="content">
+            <div class="column">
+                <h2>Main Content</h2>
+            </div>
+            <div class="column">
+                <h2>Sidebar Content</h2>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

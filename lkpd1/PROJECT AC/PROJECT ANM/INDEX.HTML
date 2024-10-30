@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Lyrics</title>
+  <style>
+    body {
+      background-color: #f07;
+      font-family: 'Comfortaa', cursive;
+      font-size: 48px;
+    }
+
+    #intro {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      height: 100vh;
+      justify-content: center;
+      position: relative;
+    }
+
+    #start {
+      cursor: pointer;
+      text-align: center;
+    }
+
+    #head {
+      border: solid 5px black;
+      border-radius: 50%;
+      height: 200px;
+      width: 200px;
+    }
+
+    #brain-container {
+      display: flex;
+      height: 100px;
+      justify-content: center;
+      width: 200px;
+    }
+
+    #brain {
+      background-color: black;
+      border-radius: 90px 70px 50px 20px;
+      height: 50px;
+      margin-left: 15px;
+      margin-top: 30px;
+      transform: rotate(15deg);
+      width: 120px;
+    }
+
+    .break {
+      margin-top: 40px;
+    }
+
+    .lyric:not(.rest) {
+      margin-left: 10px;
+    }
+
+    .lyric {
+      opacity: 0;
+    }
+
+    #space-container {
+      display: flex;
+    }
+
+    #space {
+      position: relative;
+    }
+
+    #out-there {
+      position: absolute;
+      right: 10px;
+    }
+
+    #didnt {
+      background-color: black;
+      border-radius: 25px;
+      display: block;
+      height: 5px;
+      position: relative;
+      top: 30px;
+      width: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="intro">
+    <div id="head">
+      <div id="brain-container">
+        <div id="brain"></div>
+      </div>
+      <div id="start">start</div>
+    </div>
+  </div>
+
+  <div class="verse" id="verse1">
+    <div><span class="lyric">I remember</span><span class="lyric">when</span></div>
+    <div class="lyric rest"></div>
+    <div><span class="lyric">I remember,</span><span class="lyric">I remember</span></div>
+    <div><span class="lyric">when I lost my</span><span class="lyric rest"></span><span class="lyric" id="mind">mind</span></div>
+    <div class="lyric rest"></div>
+    <div class="lyric rest"></div>
+    <div class="break"><span class="lyric">There was</span><span class="lyric">something so</span></div>
+    <div><span class="lyric">pleasant about</span><span class="lyric">that place</span></div>
+    <div class="lyric rest"></div>
+    <div class="lyric rest"></div>
+    <div><span class="lyric">Even your</span><span class="lyric">emotions have</span><span class="lyric">an echo</span></div>
+    <div class="lyric rest"></div>
+    <div id="space-container"><span class="lyric">in so much</span><div class="lyric" id="space"><span>s</span>
+      <span>p</span>
+      <span>a</span>
+      <span>c</span>
+      <span>e</span>
+    </div></div>
+  </div>
+
+  <div class="verse" id="verse2">
+    <div><span class="lyric">And when you're</span><span class="lyric" id="out-there">out there,</span></div>
+    <div class="lyric rest"></div>
+    <div class="lyric">without care</div>
+    <div><span class="lyric">Yeah I was</span><span class="lyric">out of touch</span></div>
+    <div class="lyric rest"></div>
+    <div class="lyric rest"></div>
+    <div class="lyric rest"></div>
+    <div class="lyric break">But it wasn't because</div>
+    <div><span id="didnt"></span><span class="lyric">I didn't</span><span class="lyric">know enough</span></div>
+    <div class="lyric rest"></div>
+    <div class="lyric rest"></div>
+    <div class="lyric rest"></div>
+    <div class="lyric rest"></div>
+    <div><span class="lyric">I just knew</span></div>
+    <div><span class="lyric" id="too-much">too much</span></div>
+  </div>
+
+  <div class="verse" id="verse3">
+    <div class="lyric">Does that make me crazy?</div>
+    <div class="lyric">Does that make me crazy?</div>
+    <div class="lyric">Does that make me crazy?</div>
+    <div class="lyric break">Possibly.</div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+  <script>
+    var timelineMain = gsap.timeline();
+    var timelineMindfade = gsap.timeline();
+    var timelineEcho = gsap.timeline();
+    var timelineBackground = gsap.timeline();
+
+    timelineMain.pause();
+    timelineMindfade.pause();
+    timelineEcho.pause();
+    timelineBackground.pause();
+
+    timelineBackground.to("body", {duration: 10, backgroundColor: "yellow"});
+    timelineBackground.to("body", {duration: 10, backgroundColor: "aqua"});
+    timelineBackground.to("body", {duration: 10, backgroundColor: "#b0f"});
+    timelineBackground.to("body", {duration: 10, backgroundColor: "#f00"});
+
+    timelineMain.to("#brain", {duration: .5, height: 60, width: 130, repeat: 3});
+    timelineMain.to("#intro", {duration: .2, y: "100vh"});
+    timelineMain.to("#intro", {display: "none"});
+    timelineMain.to("#verse1 .lyric", {duration: .5, opacity: 1, stagger: .6});
+
+    timelineMindfade.to("#mind", {duration: 10, opacity: 0, delay: 7.2});
+    timelineEcho.to(".lyric", {textShadow: "-5px -3px gray", delay: 13.5});
+    timelineEcho.to(".lyric", {textShadow: "none"});
+    timelineEcho.to("#space span", {duration: 4, marginRight: 50, marginLeft: 50, ease: "none", delay: 1});
+    timelineEcho.to("#verse1", {display: "none"});
+
+    timelineMain.to("#verse2 .lyric", {duration: .5, opacity: 1, stagger: .6, delay: 5});
+    timelineEcho.to("#didnt", {duration: 1, width: 530, delay: 9});
+    timelineMain.to("#too-much", {duration: 2, fontSize: 250});
+    timelineMain.to("#verse2", {display: "none", delay: 2});
+    timelineMain.to("#verse3 .lyric", {duration: .5, opacity: 1, stagger: 4.5});
+
+    var startButton = document.querySelector("#start");
+
+    startButton.onclick = () => startTimelines();
+
+    function startTimelines() {
+      startButton.style.display = "none";
+      timelineMain.play(); 
+      timelineMindfade.play();
+      timelineEcho.play();
+      timelineBackground.play();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Undangan Pernikahan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#acara">Acara</a></li>
+        <li><a href="#lokasi">Lokasi</a></li>
+        <li><a href="#rsvp">RSVP</a></li>
+        <li><a href="#galeri">Galeri Foto</a></li>
+      </ul>
+    </nav>
+    <h1>Undangan Pernikahan <span>Ahmad &amp; Nur</span></h1>
+  </header>
+
+  <section id="home">
+    <video width="100%" height="0" autoplay muted>
+      <source src="videoprewed.mp4" type="video/mp4">
+    </video>
+    <p> Kami berbahagia mengundang Anda ke pernikahan kami yang akan diadakan pada <span>tanggal 12 Februari 2023</span>. Acara ini akan diadakan di <span>Hotel Grand Ballroom</span> dan akan dimulai pada pukul <span>10:00 WIB</span>.</p>
+  </section>
+
+  <section id="acara">
+    <h2>Detail Acara</h2>
+    <table>
+      <tr>
+        <th>Tanggal</th>
+        <td>30 Agustus 2024</td>
+      </tr>
+      <tr>
+        <th>Waktu</th>
+        <td>10:00 WIB</td>
+      </tr>
+      <tr>
+        <th>Tempat</th>
+        <td>Galaxy Hotel Banjarmasin</td>
+      </tr>
+      <tr>
+        <th>Alamat Lengkap</th>
+        <td>Jl. A. Yani KM 2,5 No.138, Sungai Baru, Kec. Banjarmasin Tengah, Kota Banjarmasin, Kalimantan Selatan 70233</td>
+      </tr>
+      
+    </table>
+    <div id="map"></div>
+    <audio src="laguprewed.mp3" autoplay></audio>
+  </section>
+
+  <section id="lokasi">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.103986617195!2d114.59888117449846!3d-3.3244779412498024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de423e4212fce4b%3A0x32f154230278af69!2sGalaxy%20Hotel%20Banjarmasin!5e0!3m2!1sid!2sid!4v1724136554354!5m2!1sid!2sid" width="1500" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </section>
+
+  <section id="rsvp">
+    <h2>Konfirmasi Kehadiran</h2>
+    <form id="rsvp-form">
+      <label for="name">Nama:</label>
+      <input type="text" id="name" name="name"><br><br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email"><br><br>
+      <label for="jumlah-tamu">Jumlah Tamu:</label>
+      <input type="number" id="jumlah-tamu" name="jumlah-tamu"><br><br>
+      <input type="submit" value="Konfirmasi">
+    </form>
+    <div id="konfirmasi"></div>
+  </section>
+
+  <section id="galeri">
+    <h2>Galeri Foto</h2>
+    <div class="grid-container">
+      <div class="grid-item">
+        <img src="prewedding-indoor-1713017781.jpg" alt="Foto 1">
+      </div>
+      <div class="grid-item">
+        <img src="memilih-jasa-foto-prewedding-1704270815.jpg" alt="Foto 2">
+      </div>
+      <div class="grid-item">
+        <img src="foto-prewedding-studio-2-1713018413.jpg" alt="Foto 3">
+      </div>
+      <div class="grid-item">
+        <img src="Foto-Prewed-di-Hutan.jpg" alt="Foto 4">
+      </div>
+      <div class="grid-item">
+        <img src="00441268.jpg" alt="Foto 5">
+      </div>
+      <div class="grid-item">
+        <img src="efb3379afe4dea7f18a9643059e4a4a0.webp" alt="Foto 6">
+      </div>
+      <div class="grid-item">
+        <img src="prewedding-gym-fitnes-centre.jpg" alt="Foto 7">
+      </div>
+      <!-- tambahkan lebih banyak foto di sini -->
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Ahmad &amp; Nur</p>
+    <p>Kontak: <a href=".daffa7868@smk.belajar.id">m.daffa7868@smk.belajar.id</a> | <a href="https://wa.me/6281256177027">WhatsApp</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

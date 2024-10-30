@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300&display=swap" rel="stylesheet"/>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Playfair Display', serif;
+            background: url(go2.jpg) no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            overflow: hidden; /* Prevent scrolling */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: translateY(-5px);
+        }
+        .container h1 {
+            margin: 10px 0;
+            font-size: 2.5em;
+        }
+        .container h2 {
+            margin: 10px 0;
+            font-size: 3em;
+            font-weight: 700;
+        }
+        .container p {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+        .container .invitation {
+            font-size: 1.3em;
+            margin: 20px 0;
+        }
+        .container .button {
+            margin: 20px 0;
+        }
+        .container .button a {
+            text-decoration: none;
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 30px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            display: inline-block;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+        }
+        .container .button a:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+        }
+        .container .button a i {
+            margin-right: 10px;
+        }
+        .decoration {
+            margin: 20px 0;
+        }
+        .decoration img {
+            width: 100px;
+        }
+        .profile-container-lakian {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            width: 100%;
+            opacity: 0; /* Hide initially */
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .profile-container-binian {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            width: 100%;
+            opacity: 0; /* Hide initially */
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }                       
+
+        .profile-container.show {
+            opacity: 1; /* Show when in view */
+            transform: translateY(0);
+        }
+        .profile-image {
+            width: 200px;
+            height: 300px;
+            border-radius: 100px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        .profile-name {
+            font-size: 32px;
+            margin: 20px 0 10px;
+            color: black;
+        }
+        .profile-details {
+            font-size: 18px;
+            color: #4a5a3c;
+            margin: 5px 0;
+        }
+
+        .kotak-nikah {
+            text-align: center;
+            background-color: #ffffff;
+
+
+        }
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="decoration">
+            <img src="images-removebg-preview.png" alt="Floral decoration with a heart in the center"/>
+        </div>
+        <h1>WEDDING INVITATION</h1>
+        <h2>DAFFA & DINA</h2>
+        <p>WE INVITE YOU TO CELEBRATE OUR WEDDING</p>
+        <div class="invitation">
+            <p>Kepada Yth. Bapak / Ibu / Saudara/i</p>
+            <p>Tamu Undangan</p>
+        </div>
+        <div class="button">
+            <!-- Link to the profile section -->
+            <a href="#profiles">
+                <i class="fas fa-envelope"></i>
+                Buka Undangan
+            </a>
+        </div>
+    </div>
+
+    <!-- Added an ID to the profiles section -->
+    <div id="profiles">
+        <div class="profile-container profile-container-binian">
+            <img class="profile-image" src="toegas.jpg" alt="A woman in a wedding dress with a tiara, smiling and looking to the side"/>
+            <div class="profile-name">Dina</div>
+            <div class="profile-details">Putri Pertama</div>
+            <div class="profile-details">Bpk. Nugroho & Ibu Meilani</div>
+        </div>
+
+        <div class="profile-container profile-container-lakian">
+            <img class="profile-image" src="oranghitam.jpg" alt="Profile picture of a person in a white suit with glasses"/>
+            <div class="profile-name">Daffa</div>
+            <div class="profile-details">Putra Pertama</div>
+            <div class="profile-details">Bpk. Andi & Ibu Linda</div>
+        </div>
+    </div>
+
+    <div class="akad-nikah">
+        <h2>THE WEDDING DAY</h2>
+
+        <div class="kotak-nikah">
+            <div class="event">
+                <div class="card">
+                 <p>
+                  26 November 202x - 08:00 WIB
+                 </p>
+                 <h2>
+                  AKAD NIKAH
+                 </h2>
+                 <p>
+                  Levidio Hall
+                  <br/>
+                  Sriwijaya XII/04 Jember, Jawa Timur
+                 </p>
+                 <div class="buttons">
+                  <a href="#">
+                   <i class="fas fa-map-marker-alt">
+                   </i>
+                   Kunjungi Lokasi
+                  </a>
+                  <a href="#">
+                   <i class="fas fa-calendar-alt">
+                   </i>
+                   Add To Calendar
+                  </a>
+                 </div>
+                </div>
+                <div class="card">
+                 <p>
+                  12 Desember 202x - 08:00-15:00 WIB
+                 </p>
+                 <h2>
+                  ACARA RESEPSI
+                 </h2>
+                 <p>
+                  Levidio Hall
+                  <br/>
+                  Sriwijaya XII/04 Jember, Jawa Timur
+                 </p>
+                 <div class="buttons">
+                  <a href="#">
+                   <i class="fas fa-map-marker-alt">
+                   </i>
+                   Kunjungi Lokasi
+                  </a>
+                  <a href="#">
+                   <i class="fas fa-calendar-alt">
+                   </i>
+                   Add To Calendar
+                  </a>
+                 </div>
+                </div>
+               </div>
+               <div class="live-streaming">
+                <h2>
+                 LIVE STREAMING
+                </h2>
+                <p>
+                 We will broadcast the wedding ceremony virtually
+                </p>
+                <a href="#">
+                 <i class="fas fa-video">
+                 </i>
+                 AKSES LIVE STREAMING
+                </a>
+        </div>
+    </div>
+    <footer>
+        <p>Copyright 2024 M DAFFA AL AYUBI</p>
+    </footer>
+
+    <script>
+        // Enable scrolling on button click
+        document.querySelector('.button a').addEventListener('click', function(e) {
+            e.preventDefault();
+            // Remove the overflow hidden from the body to enable scrolling
+            document.body.style.overflow = 'auto';
+            // Smoothly scroll to the profiles section
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+
+            // Add fade-in animation for profile containers
+            setTimeout(function() {
+                document.querySelectorAll('.profile-container').forEach(function(container) {
+                    container.classList.add('show');
+                });
+            }, 500);
+        });
+    </script>
+</body>
+</html>

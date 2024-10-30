@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daffa & Karin</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <style>
+        body {
+            background-color: #222;
+            color: #fff;
+            font-family: sans-serif;
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        h1, h2 {
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 4em;
+            margin-top: 0;
+        }
+
+        h2 {
+            font-size: 2em;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .line {
+            width: 100px;
+            height: 2px;
+            background-color: #fff;
+            margin: 20px auto;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #222;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #444444;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+            background-color: #fff;
+            color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .card img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .card h2 {
+            margin-top: 0;
+        }
+
+        .card .line {
+            width: 50px;
+        }
+
+        .card p {
+            font-size: 0.9em;
+        }
+
+        .card .social {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .card .social a {
+            display: inline-block;
+            margin: 0 5px;
+            color: #222;
+            text-decoration: none;
+        }
+
+        .card .social a:hover {
+            color: #444444;
+        }
+
+        .card .social i {
+            font-size: 1.5em;
+        }
+
+        .wanita, .pria {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .wanita img, .pria img {
+            width: 100px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .grid-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            color: #222;
+        }
+
+        .grid-item img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .grid-item h2 {
+            margin-top: 0;
+        }
+
+        .grid-item .line {
+            width: 50px;
+            height: 2px;
+            background-color: #222;
+            margin: 10px 0;
+        }
+
+        .grid-item p {
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .grid-item .social {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .grid-item .social a {
+            display: inline-block;
+            margin: 0 5px;
+            color: #222;
+            text-decoration: none;
+        }
+
+        .grid-item .social a:hover {
+            color: #444444;
+        }
+
+        .grid-item .social i {
+            font-size: 1.5em;
+        }
+
+        /* Style for the wedding event details */
+        .wedding-details {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            color: #222;
+            margin-top: 20px;
+        }
+
+        .wedding-details .event {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .wedding-details .event h2 {
+            margin-bottom: 5px;
+        }
+
+        .wedding-details .event p {
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .wedding-details .event .time {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .wedding-details .event .time i {
+            margin-right: 5px;
+        }
+
+        .wedding-details .event .location {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .wedding-details .event .location i {
+            margin-right: 5px;
+        }
+
+        /* Style for the prayer section */
+        .prayer {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            color: #222;
+            margin-top: 20px;
+        }
+
+        .prayer p {
+            font-size: 1em;
+            text-align: justify;
+            margin-bottom: 10px;
+        }
+
+        .prayer .doa {
+            font-weight: bold;
+        }
+
+        /* Style for the countdown section */
+        .countdown {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            color: #222;
+            margin-top: 20px;
+        }
+
+        .countdown .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .countdown .countdown-item h3 {
+            margin-bottom: 5px;
+        }
+
+        .countdown .countdown-item p {
+            font-size: 2em;
+            margin-bottom: 0;
+        }
+
+        .countdown .countdown-item .unit {
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+
+        /* Style for the RSVP section */
+        .rsvp {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            color: #222;
+            margin-top: 20px;
+        }
+
+        .rsvp h2 {
+            margin-bottom: 10px;
+        }
+
+        .rsvp form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .rsvp input[type="text"],
+        .rsvp textarea {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .rsvp textarea {
+            height: 100px;
+        }
+
+        .rsvp button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #222;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Add styles for the new section */
+        .surah {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            color: #222;
+            margin-top: 20px;
+        }
+
+        .surah p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .surah .ayat {
+            font-style: italic;
+            font-weight: bold;
+
+            .video-section {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #222;
+  margin-top: 20px;
+}
+
+.video-section video {
+  width: 100%;
+  height: 315px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>THE WEDDING</h1>
+        <div class="line"></div>
+        <h1>Daffa</h1>
+        <h2>&</h2>
+        <h1>Karina</h1>
+        <div class="line"></div>
+        <h2>Desember, 12, 2024</h2>
+        <a href="#grid-container" class="button" onclick="scrollToMempelai()">Buka Undangan</a>
+
+        <p>Sesungguhnya hati ini telah terhimpun dalam cinta dan bertemu dalam taat kepada Mu. Eratkanlah ikatannya, kekalkanlahkasih sayangnya, berkahilah jalannya dan penuhilah hati ini dengan cahaya Mu yang tak pernah pudar Rasa haru dan bahagia terukir dihati kami atas limpahan Rahmat Allah SWT dan kami bersimpuh memohon Ridho Nya untuk melangsungkan resepsi pernikahan putra - putri kami</p>
+
+        <div class="grid-container" id="grid-container">
+            <div class="grid-item wanita">
+                <img src="toegas.jpg" alt="">
+                <h2>Dina Jayawardana</h2>
+                <div class="line"></div>
+                <p>Anak Dari</p>
+                <p>Bapak Samsul & Ibu Mira</p>
+                <div class="social">
+                    <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="grid-item pria">
+                <img src="oranghitam.jpg" alt="">
+                <h2>M Daffa Al Ayubi</h2>
+                <div class="line"></div>
+                <p>Anak Dari</p>
+                <p>Bapak Sudirman & Ibu Anita</p>
+                <div class="social">
+                    <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="wedding-details">
+            <div class="event">
+                <h2>Akad Nikah</h2>
+                <p>Desember, 12, 2024</p>
+                <div class="time">
+                    <i class="fas fa-clock"></i>
+                    <p>09.00 WITA - SELESAI</p>
+                </div>
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Jalan A. Yani KM 2,5 No.138, Sungai Baru</p>
+                </div>
+            </div>
+            <div class="event">
+                <h2>Resepsi</h2>
+                <p>Desember, 12, 2024</p>
+                <div class="time">
+                    <i class="fas fa-clock"></i>
+                    <p>12.00 WITA - SELESAI</p>
+                </div>
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Jalan A. Yani KM 2,5 No.138, Sungai Baru</p>
+                </div>
+            </div>
+        </div>
+
+<div class="countdown">
+  <div class="countdown-item">
+    <h3>Hari</h3>
+    <p id="days">00</p>
+    <div class="unit">Hari</div>
+  </div>
+  <div class="countdown-item">
+    <h3>Jam</h3>
+    <p id="hours">00</p>
+    <div class="unit">Jam</div>
+  </div>
+  <div class="countdown-item">
+    <h3>Menit</h3>
+    <p id="minutes">00</p>
+    <div class="unit">Menit</div>
+  </div>
+  <div class="countdown-item">
+    <h3>Detik</h3>
+    <p id="seconds">00</p>
+    <div class="unit">Detik</div>
+  </div>
+</div>
+
+<div class="video-section">
+    <h2>Video Pernikahan</h2>
+    <video width="100%" height="550" controls autoplay>
+        <source src="videoprewed.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+  </div>
+
+        <div class="prayer">
+            <p>"Semoga Allah menghimpun yang terserak dari keduanya, memberkati mereka berdua dan kiranya Allah meningkatkan kualitas keturunan mereka, menjadikannya pembuka pintu rahmat, sumber ilmu dan hikmah serta pemberi rasa aman bagi umat."</p>
+            <p class="doa">(Doa Nabi Muhammad SAW, pada pernikahan putrinya Fatimah Azzahra dengan Ali Bin Abi Thalib)</p>
+        </div>
+
+
+
+        <div class="rsvp">
+            <h2>Ucapan & RSVP</h2>
+            <p>Silahkan isi formulir ini untuk konfirmasi kehadiran Anda</p>
+            <form action="#">
+                <input type="text" placeholder="Nama" required>
+                <textarea placeholder="Ucapan" required></textarea>
+                <input type="text" placeholder="No hp/email" required>
+                <button type="submit">Kirim</button>
+            </form>
+
+
+        </div>
+
+        <div class="surah" data-aos="zoom-in">
+            <p>Surah Az Zariyat Ayat 49</p>
+            <p class="ayat">وَمِنْ كُلِّ شَيْءٍ خَلَقْنَا زَوْجَيْنِ لَعَلَّكُمْ تَذَكَّرُوْنَ -
+ </p>
+            <p>"Dan segala sesuatu Kami ciptakan berpasang-pasangan agar kamu mengingat (kebesaran Allah)." Allah SWT menciptakan semua makhluk dengan berpasang-pasang. Mulai dari bumi dan langit, matahari dan rembulan, terang dan gelap, iman dan kafir, hidup dan celaka. Demikian juga dengan semua makhluk hidup dan tumbuhan. </p>
+        </div>
+
+    </div>
+
+    <script>
+        const countDownDate = new Date("December 12, 2024 00:00:00").getTime();
+
+        let x = setInterval(function() {
+
+        let now = new Date().getTime();
+
+        let distance = countDownDate - now;
+
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "EXPIRED";
+        }
+        }, 1000);
+
+        function scrollToMempelai() {
+            const mempelaiSection = document.getElementById("grid-container");
+            mempelaiSection.scrollIntoView({ behavior: "smooth" });
+        }
+
+        
+    </script>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+</body>
+</html>

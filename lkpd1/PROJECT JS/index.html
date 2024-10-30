@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game & Challenges</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #0b192c;
+        background: url(windahlapucard.webp) no-repeat center center/cover;
+        min-height: 100vh;
+      }
+
+      .main-content {
+        width: 100%;
+        max-width: 800px;
+        background-color: rgba(58, 109, 140, 0.95);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .container, .challenge {
+        background-color: rgba(0, 75, 153, 0.95);
+        color: #fff;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 15px;
+        text-align: center;
+      }
+
+      button {
+        margin: 10px 0;
+        padding: 10px;
+        cursor: pointer;
+        border: none;
+        border-radius: 10px;
+        background-color: #0b192c;
+        color: #fff;
+      }
+
+      input, select {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 10px;
+        border: none;
+        font-size: 1rem;
+      }
+
+      p {
+        margin: 10px 0;
+        font-size: 1.1rem;
+      }
+
+      #mainLagiBtn {
+        visibility: hidden;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main-content">
+      <!-- Game Tebak Angka -->
+      <div class="container">
+        <h1>Game Tebak Angka</h1>
+        <p>Masukkan angka antara 1 dan 100:</p>
+        <input type="number" id="inputan" />
+        <p id="kesempatan"></p>
+        <button id="tebakBtn" onclick="periksaInputan()">Tebak!</button>
+        <p id="pesan"></p>
+        <button id="mainLagiBtn" onclick="resetGame()">Main Lagi</button>
+      </div>
+
+      <!-- Challenge 2: Mengurutkan Angka -->
+      <div class="challenge">
+        <h2>Challenge 2: Mengurutkan Angka dari Array</h2>
+        <p>Masukkan angka-angka acak, pisahkan dengan koma (,):</p>
+        <input type="text" id="arrayInput" placeholder="Contoh: 5,3,8,1,9" />
+        <button onclick="sortArray()">Urutkan</button>
+        <p>Ascending: <span id="ascendingArray"></span></p>
+        <p>Descending: <span id="descendingArray"></span></p>
+      </div>
+
+      <!-- Challenge 3: FizzBuzz -->
+      <div class="challenge">
+        <h2>Challenge 3: FizzBuzz</h2>
+        <p>Masukkan angka:</p>
+        <input type="number" id="fizzBuzzInput" placeholder="Contoh: 15" />
+        <button onclick="fizzBuzz()">Jalankan</button>
+        <p>Hasil FizzBuzz:</p>
+        <p id="fizzBuzzResult"></p>
+      </div>
+
+      <!-- Challenge 4: Kalkulator Sederhana -->
+      <div class="challenge">
+        <h2>Challenge 4: Kalkulator Sederhana</h2>
+        <input type="number" id="num1" placeholder="Angka pertama" />
+        <input type="number" id="num2" placeholder="Angka kedua" />
+        <select id="operation">
+          <option value="tambah">Tambah</option>
+          <option value="kurang">Kurang</option>
+          <option value="kali">Kali</option>
+          <option value="bagi">Bagi</option>
+        </select>
+        <button onclick="calculate()">Hitung</button>
+        <p>Hasil: <span id="calcResult"></span></p>
+      </div>
+
+      <!-- Challenge 5: Menghitung Faktorial -->
+      <div class="challenge">
+        <h2>Challenge 5: Menghitung Faktorial</h2>
+        <p>Masukkan angka:</p>
+        <input type="number" id="factorialInput" placeholder="Contoh: 5" />
+        <button onclick="calculateFactorial()">Hitung Faktorial</button>
+        <p>Hasil Faktorial: <span id="factorialResult"></span></p>
+      </div>
+    </div>
+
+    <script>
+      // Tebak Angka Game
+      let angkaRandom = Math.floor(Math.random() * 100) + 1;
+      const inputan = document.getElementById("inputan");
+      const pesan = document.getElementById("pesan");
+      const kesempatan = document.getElementById("kesempatan");
+      const tebakBtn = document.getElementById("tebakBtn");
+      const mainLagiBtn = document.getElementById("mainLagiBtn");
+      let percobaan = 0;
+      let batasPercobaan = 8;
+
+      kesempatan.innerHTML = `Kesempatan anda tersisa: ${batasPercobaan}`;
+
+      function periksaInputan() {
+        let angkaTebakan = parseInt(inputan.value);
+        percobaan++;
+        batasPercobaan--;
+
+        if (batasPercobaan > 0) {
+          if (isNaN(angkaTebakan)) {
+            pesan.innerHTML = "Masukkan angka yang valid!";
+            kesempatan.innerHTML = `Kesempatan anda tersisa: ${batasPercobaan}`;
+          } else if (angkaTebakan === angkaRandom) {
+            pesan.innerHTML = "Selamat! Tebakan Anda benar.";
+            kesempatan.innerHTML = "";
+            inputan.disabled = true;
+            tebakBtn.disabled = true;
+            mainLagiBtn.style.visibility = "visible";
+          } else if (angkaTebakan < angkaRandom) {
+            pesan.innerHTML = "Tebakan anda terlalu kecil.";
+            kesempatan.innerHTML = `Kesempatan anda tersisa: ${batasPercobaan}`;
+          } else {
+            pesan.innerHTML = "Tebakan anda terlalu besar.";
+            kesempatan.innerHTML = `Kesempatan anda tersisa: ${batasPercobaan}`;
+          }
+        } else {
+          kesempatan.innerHTML = `Kesempatan anda tersisa: ${batasPercobaan}`;
+          pesan.innerHTML = `Kesempatan Anda telah habis. Permainan berakhir! Angka yang benar adalah ${angkaRandom}`;
+          inputan.disabled = true;
+          tebakBtn.disabled = true;
+          mainLagiBtn.style.visibility = "visible";
+        }
+      }
+
+      function resetGame() {
+        angkaRandom = Math.floor(Math.random() * 100) + 1;
+        percobaan = 0;
+        batasPercobaan = 8;
+        inputan.disabled = false;
+        inputan.value = "";
+        tebakBtn.disabled = false;
+        pesan.innerHTML = "";
+        kesempatan.innerHTML = `Kesempatan anda tersisa: ${batasPercobaan}`;
+        mainLagiBtn.style.visibility = "hidden";
+      }
+
+      // Challenge 2: Mengurutkan Angka dari Array
+      function sortArray() {
+        let input = document.getElementById("arrayInput").value;
+        if (!input) {
+          alert("Masukkan angka untuk diurutkan!");
+          return;
+        }
+        let array = input.split(",").map(Number); // Convert input to array of numbers
+        if (array.some(isNaN)) {
+          alert("Pastikan semua input adalah angka!");
+          return;
+        }
+        let ascendingArray = [...array].sort((a, b) => a - b);
+        let descendingArray = [...array].sort((a, b) => b - a);
+
+        document.getElementById("ascendingArray").innerHTML = ascendingArray.join(", ");
+        document.getElementById("descendingArray").innerHTML = descendingArray.join(", ");
+      }
+
+      // Challenge 3: FizzBuzz
+      function fizzBuzz() {
+        let num = parseInt(document.getElementById("fizzBuzzInput").value);
+        if (isNaN(num)) {
+          alert("Masukkan angka yang valid!");
+          return;
+        }
+        let result = "";
+        for (let i = 1; i <= num; i++) {
+          if (i % 3 === 0 && i % 5 === 0) result += "FizzBuzz ";
+          else if (i % 3 === 0) result += "Fizz ";
+          else if (i % 5 === 0) result += "Buzz ";
+          else result += i + " ";
+        }
+        document.getElementById("fizzBuzzResult").innerHTML = result;
+      }
+
+      // Challenge 4: Kalkulator Sederhana
+      function calculate() {
+        let num1 = parseFloat(document.getElementById("num1").value);
+        let num2 = parseFloat(document.getElementById("num2").value);
+        let operation = document.getElementById("operation").value;
+        if (isNaN(num1) || isNaN(num2)) {
+          alert("Masukkan kedua angka dengan benar!");
+          return;
+        }
+
+        let result;
+        switch (operation) {
+          case "tambah":
+            result = num1 + num2;
+            break;
+          case "kurang":
+            result = num1 - num2;
+            break;
+          case "kali":
+            result = num1 * num2;
+            break;
+          case "bagi":
+            result = num1 / num2;
+            break;
+        }
+
+        document.getElementById("calcResult").innerHTML = result;
+      }
+
+      // Challenge 5: Menghitung Faktorial
+      function calculateFactorial() {
+        let num = parseInt(document.getElementById("factorialInput").value);
+        if (isNaN(num) || num < 0) {
+          alert("Masukkan angka faktorial yang valid (>= 0)!");
+          return;
+        }
+        let result = 1;
+        for (let i = 1; i <= num; i++) {
+          result *= i;
+        }
+        document.getElementById("factorialResult").innerHTML = result;
+      }
+    </script>
+  </body>
+</html>

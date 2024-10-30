@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Challenges</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e7f5ff;
+            border-left: 5px solid #007BFF;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>JavaScript Challenges</h2>
+
+        <!-- Tantangan 1: Manipulasi String -->
+        <div class="section">
+            <h3>Tantangan 1: Manipulasi String</h3>
+            <label for="inputSentence">Masukkan Kalimat:</label>
+            <input type="text" id="inputSentence" placeholder="Contoh: selamat datang di tantangan">
+            <button onclick="capitalizeSentence()">Kapitalisasi Kata Pertama</button>
+            <div id="result1" class="result"></div>
+        </div>
+
+        <!-- Tantangan 2: Seleksi Kondisional -->
+        <div class="section">
+            <h3>Tantangan 2: Seleksi Kondisional</h3>
+            <label for="inputNilai">Masukkan Nilai Ujian:</label>
+            <input type="number" id="inputNilai" placeholder="Masukkan nilai ujian (0-100)">
+            <button onclick="cekKelulusan()">Cek Kelulusan</button>
+            <div id="result2" class="result"></div>
+        </div>
+
+        <!-- Tantangan 3: Looping Ganjil Genap -->
+        <div class="section">
+            <h3>Tantangan 3: Bilangan Ganjil dan Genap</h3>
+            <label for="angkaPertama">Angka Pertama:</label>
+            <input type="number" id="angkaPertama" placeholder="Masukkan angka pertama">
+            <label for="angkaKedua">Angka Kedua:</label>
+            <input type="number" id="angkaKedua" placeholder="Masukkan angka kedua">
+            <button onclick="cetakGanjilGenap()">Cetak Ganjil dan Genap</button>
+            <div id="result3" class="result"></div>
+        </div>
+
+        <!-- Tantangan 4: Statistik Array -->
+        <div class="section">
+            <h3>Tantangan 4: Statistik Harga Produk</h3>
+            <button onclick="hitungStatistik()">Hitung Statistik</button>
+            <div id="result4" class="result"></div>
+        </div>
+    </div>
+
+    <script>
+        // Tantangan 1: Manipulasi String
+        function capitalizeSentence() {
+            let sentence = document.getElementById("inputSentence").value;
+            let words = sentence.split(' ');
+            for (let i = 0; i < words.length; i++) {
+                words[i] = words[i].charAt(0).toUpperCase() + words[i].substring(1);
+            }
+            document.getElementById("result1").innerHTML = words.join(' ');
+        }
+
+        // Tantangan 2: Seleksi Kondisional
+        function cekKelulusan() {
+            let nilai = parseFloat(document.getElementById("inputNilai").value);
+            let result;
+            if (isNaN(nilai)) {
+                result = "Input tidak valid, harap masukkan angka.";
+            } else if (nilai >= 90) {
+                result = "Lulus dengan pujian";
+            } else if (nilai >= 70) {
+                result = "Lulus";
+            } else {
+                result = "Tidak Lulus";
+            }
+            document.getElementById("result2").innerHTML = result;
+        }
+
+        // Tantangan 3: Looping Ganjil Genap
+        function cetakGanjilGenap() {
+            let angka1 = parseInt(document.getElementById("angkaPertama").value);
+            let angka2 = parseInt(document.getElementById("angkaKedua").value);
+            let result = "";
+            for (let i = angka1; i <= angka2; i++) {
+                if (i % 2 === 0) {
+                    result += i + " adalah bilangan genap<br>";
+                } else {
+                    result += i + " adalah bilangan ganjil<br>";
+                }
+            }
+            document.getElementById("result3").innerHTML = result;
+        }
+
+        // Tantangan 4: Looping pada Array
+        function hitungStatistik() {
+            let hargaProduk = [5000, 12000, 15000, 8000, 25000];
+            let total = 0;
+            let hargaTerendah = hargaProduk[0];
+            let hargaTertinggi = hargaProduk[0];
+            for (let i = 0; i < hargaProduk.length; i++) {
+                total += hargaProduk[i];
+                if (hargaProduk[i] < hargaTerendah) {
+                    hargaTerendah = hargaProduk[i];
+                }
+                if (hargaProduk[i] > hargaTertinggi) {
+                    hargaTertinggi = hargaProduk[i];
+                }
+            }
+            let rataRata = total / hargaProduk.length;
+            document.getElementById("result4").innerHTML = 
+                "Jumlah total harga: " + total + "<br>" +
+                "Harga rata-rata: " + rataRata + "<br>" +
+                "Harga tertinggi: " + hargaTertinggi + "<br>" +
+                "Harga terendah: " + hargaTerendah;
+        }
+    </script>
+
+</body>
+</html>
